@@ -3,3 +3,7 @@
 My notes and annotations from https://frontendmasters.com/courses/algorithms/
 
 - [00 Introduction](./00-introduction)
+
+## Basics
+
+- [01-01 Big O Time Complexity](./01-01-big-o-time-complexity)
