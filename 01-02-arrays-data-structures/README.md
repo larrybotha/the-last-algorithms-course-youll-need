@@ -43,3 +43,5 @@ https://frontendmasters.com/courses/algorithms/arrays-data-structure/
       actually a replacement; there is no change to the size of an array, only
       the values of the data stored at a specific location in memory
   * accessing - accessing is also O(1)
+- in Rust and Go you have the capacity of an array - in Javascript, the
+  `byteLength` property is somewhat analogous
