@@ -8,3 +8,4 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 
 - [01-01 Big O Time Complexity](./01-01-big-o-time-complexity)
 - [01-02 Arrays Data Structures](./01-02-arrays-data-structures)
+- [01-03 Arrays QA](./01-03-arrays-qa)
