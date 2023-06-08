@@ -4,7 +4,7 @@ https://frontendmasters.com/courses/algorithms/binary-search-algorithm/
 
 ## Takeaways
 
-- algorithms that half the dataset on each iteration are usually O(log N) or
+- algorithms that halve the dataset on each iteration are usually O(log N) or
   O(N log N)
 
 ## Notes
@@ -15,7 +15,7 @@ https://frontendmasters.com/courses/algorithms/binary-search-algorithm/
 
     ```
     xs = [x0, x1, x2, ..., xn-3, xn-2, xn-1, xn]
-    #     |       ^     ^
+    #     ^       ^     ^
     #     |       |     |
     # ----|-------|--->[1]
     #     |       |
@@ -43,3 +43,13 @@ https://frontendmasters.com/courses/algorithms/binary-search-algorithm/
    ```
 
    Leaving us with a time complexity of O(log n)
+
+   i.e. for a dataset of length 4096 we have:
+
+   ```
+    k = log₂4096
+    or, 2^k = 4096
+    k = 12
+   ```
+
+   The worst case is 12 iterations
