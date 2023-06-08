@@ -2,6 +2,8 @@
 
 https://frontendmasters.com/courses/algorithms/linear-search-kata-setup/
 
+- [linear search kata](../katas/src/day1/LinearSearchList.ts)
+
 ## Takeaways
 
 - visualising problems and algorithmic structures is a huge benefit to
@@ -23,7 +25,7 @@ https://frontendmasters.com/courses/algorithms/linear-search-kata-setup/
     # -> [0]  |         |
     # -----> [1]        |
     # ...               |
-    # -----------------[n]
+    # ---------------->[n]
 
     search(xs, v)
     ```
