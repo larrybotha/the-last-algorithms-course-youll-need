@@ -13,3 +13,4 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 ## Search
 
 - [02-01 Linear Seardh & Kata Setup](./02-01-linear-search-and-kata-setup)
+- [02-02 Binary Search Algorithms](./02-02-binary-search-algorithms)
