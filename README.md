@@ -16,3 +16,4 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 - [02-02 Binary Search Algorithms](./02-02-binary-search-algorithms)
 - [02-03 Pseudo Code Binary Search](./02-03-pseudo-code-binary-search)
 - [02-04 Implementing Binary Search](./02-04-implementing-binary-search)
+- [02-05 The Two Crystal Ball Problem](./02-05-two-crystal-ball-problem)
