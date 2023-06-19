@@ -4,7 +4,19 @@
 - [BinarySearchList.ts](../katas/src/day1/BinarySearchList.ts)
 
 
+## Takeaways
+
+- the `[min, max)` included / excluded array now makes sense - the algorithm
+    uses the _length of the array_ to calculate the mid index, even though we'd
+    never use the length to access an item in the array in TypeScript.
+
+    `[min, max)` refers specifically to the list of indices we're working with,
+    and the `max` value is excluded value is never being evaluated, even when
+    the length of the array is 1
+
 ## Examples
+
+From this directory
 
 - Typescript:
   ```shell
