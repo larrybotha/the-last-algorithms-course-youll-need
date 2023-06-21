@@ -18,3 +18,7 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 - [02-04 Implementing Binary Search](./02-04-implementing-binary-search)
 - [02-05 The Two Crystal Ball Problem](./02-05-two-crystal-ball-problem)
 - [02-06 Implementing Two Crystal Balls](./02-06-implementing-two-crystal-balls)
+
+## Sort
+
+- [03-01 Bubble Sort](./03-01-bubble-sort)
