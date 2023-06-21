@@ -22,3 +22,4 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 ## Sort
 
 - [03-01 Bubble Sort](./03-01-bubble-sort)
+- [03-02 Implementing Bubble Sort](./03-02-implementing-bubble-sort)
