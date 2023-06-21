@@ -1,6 +1,6 @@
 fn two_crystal_balls_naive(xs: &Vec<bool>) -> (i32, i32) {
     let sqrt_xs = f32::sqrt(xs.len() as f32).floor() as usize;
-    let (mut safe_index, mut result, mut iterations) = (0, -1, 0);
+    let (mut safe_index, mut break_index, mut iterations) = (0, -1, 0);
     let indices = (0..(sqrt_xs)).map(|x| x * sqrt_xs);
 
     for index in indices {
@@ -17,20 +17,20 @@ fn two_crystal_balls_naive(xs: &Vec<bool>) -> (i32, i32) {
         iterations += 1;
 
         if *is_broken {
-            result = (safe_index + index) as i32;
+            break_index = (safe_index + index) as i32;
             break;
         }
     }
 
-    (result, iterations)
+    (break_index, iterations)
 }
 
-fn two_crystal_balls_idiomatic(xs: &Vec<bool>) -> (i32, i32) {
+fn two_crystal_balls_improved(xs: &Vec<bool>) -> (i32, i32) {
     // improvements
     //  - cast xs.len() instead of calling f32::sqrt
     let sqrt_xs = (xs.len() as f32).sqrt().floor();
     let mut iterations = 0;
-    let mut result = -1;
+    let mut break_index = -1;
     let mut safe_index = 0;
 
     // improvements:
@@ -49,7 +49,7 @@ fn two_crystal_balls_idiomatic(xs: &Vec<bool>) -> (i32, i32) {
             break;
         }
 
-        safe_index = index;
+        safe_index = index * (sqrt_xs as usize)
     }
 
     // improvements
@@ -58,39 +58,52 @@ fn two_crystal_balls_idiomatic(xs: &Vec<bool>) -> (i32, i32) {
     //  - enumerate so that we have access to index and value
     for (index, &is_broken) in xs
         .iter()
-        .skip(safe_index * (sqrt_xs as usize))
+        .skip(safe_index)
         .take(sqrt_xs as usize)
         .enumerate()
     {
         iterations += 1;
 
         if is_broken {
-            result = (safe_index * (sqrt_xs as usize) + index) as i32;
+            break_index = (safe_index + index) as i32;
             break;
         }
     }
 
-    (result, iterations)
+    (break_index, iterations)
 }
 
 fn two_crystal_balls_functional(xs: &Vec<bool>) -> (i32, i32) {
     let sqrt_xs = (xs.len() as f32).sqrt().floor();
+    // improvements::
+    //  - use .position to get index of broken ball
+    //  - use .map_or to handle the returned Option
     let (first_iterations, safe_index) = xs
         .iter()
-        .enumerate()
         .step_by(sqrt_xs as usize)
-        .map(|(_, &is_broken)| is_broken)
-        .position(|is_broken| is_broken)
+        .position(|&is_broken| is_broken) // first ball breaks here
         .map_or((0, 0), |position| {
-            (position + 1, (position - 1) * (sqrt_xs as usize))
+            // if position is 0, we did 1 iteration, etc.
+            let iterations = position + 1;
+            let index = match position {
+                0 => position,
+                // the previous position was safe, if the position is greater than 0
+                _ => (position - 1) * sqrt_xs as usize,
+            };
+
+            (iterations, index)
         });
-    let (iterations, result) = xs
+    // improvements:
+    //  - use .map after .enumerate to drop one level of reference
+    //  - use .find, dereferencing the tuple, to find the first location
+    //      of the break. This consumes our second breakable ball
+    //  - use .map_or to handle the Option returned by .find
+    let (iterations, break_index) = xs
         .iter()
         .skip(safe_index)
-        .take(sqrt_xs as usize)
         .enumerate()
         .map(|(index, &is_broken)| (index, is_broken))
-        .find(|&(_, is_broken)| is_broken)
+        .find(|&(_, is_broken)| is_broken) // second ball breaks here
         .map_or((0, -1), |(index, _)| {
             (
                 (first_iterations + index + 1) as i32,
@@ -98,7 +111,7 @@ fn two_crystal_balls_functional(xs: &Vec<bool>) -> (i32, i32) {
             )
         });
 
-    (result, iterations)
+    (break_index, iterations)
 }
 
 fn main() {
@@ -106,7 +119,7 @@ fn main() {
     let xs = (0..10000).map(|x| x > max_ball_height).collect();
     let fns = [
         two_crystal_balls_naive,
-        two_crystal_balls_idiomatic,
+        two_crystal_balls_improved,
         two_crystal_balls_functional,
     ];
 
@@ -116,7 +129,8 @@ fn main() {
         println!(
             "
             With max ball height at {max_ball_height},
-            index {index} found after {iterations} iterations"
+            balls break at {index},
+            found after {iterations} iterations"
         )
     }
 }
