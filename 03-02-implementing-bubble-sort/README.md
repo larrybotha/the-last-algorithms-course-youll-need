@@ -55,6 +55,9 @@ https://frontendmasters.com/courses/algorithms/implementing-bubble-sort/
 - accessing items in an array is always constant time, as is settings values at
   indexes in an array. All of the work done during swapping is constant time,
   and has no effect on the time complexity of the overall algorithm
+- sorting immutable arrays would be very expensive, as you'd have to create a
+  new array every time there was a sort. Immutability and sorting algorithms
+  are not good friends...
 
 ## Examples
 
