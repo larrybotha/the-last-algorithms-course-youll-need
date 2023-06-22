@@ -52,6 +52,10 @@ https://frontendmasters.com/courses/algorithms/implementing-bubble-sort/
     N(N + 1) / 2 => 5 050  iterations
   ```
 
+- accessing items in an array is always constant time, as is settings values at
+  indexes in an array. All of the work done during swapping is constant time,
+  and has no effect on the time complexity of the overall algorithm
+
 ## Examples
 
 - Typescript
