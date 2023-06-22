@@ -23,3 +23,4 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 
 - [03-01 Bubble Sort](./03-01-bubble-sort)
 - [03-02 Implementing Bubble Sort](./03-02-implementing-bubble-sort)
+- [03-03 Linked List Data Structures](./03-03-linked-list-data-structures)
