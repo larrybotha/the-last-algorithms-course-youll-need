@@ -67,6 +67,10 @@ fn bubble_sort_functional<T: Ord>(xs: &mut [T]) {
 }
 
 fn assert_order<T: PartialOrd>(xs: &[T]) {
+    if xs.is_empty() {
+        return;
+    }
+
     for i in 0..(xs.len() - 1) {
         let curr = &xs[i];
         let next = &xs[i + 1];
