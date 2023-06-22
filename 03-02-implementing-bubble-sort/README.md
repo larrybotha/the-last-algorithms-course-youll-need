@@ -11,13 +11,15 @@ https://frontendmasters.com/courses/algorithms/implementing-bubble-sort/
   ```shell
   $ cd ../katas/src/day1 && npx jest bubble
   ```
+
 - Rust:
 
-    ```shell
-    cargo run
-    ```
+  ```shell
+  cargo run
+  ```
+
 - Python
 
-    ```shell
-    python src/main.py
-    ```
+  ```shell
+  python src/main.py
+  ```
