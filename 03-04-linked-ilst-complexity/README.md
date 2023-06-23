@@ -5,6 +5,8 @@ https://frontendmasters.com/courses/algorithms/linked-list-complexity/
 ## Takeaways
 
 - any time you perform an O(n) operation, there's probably a better way to do it
+- how a linked list works depends on what you're trying to achieve... if you
+  need fast reads or writes at extremities, that's how you'll implement it...
 
 ## Notes
 
