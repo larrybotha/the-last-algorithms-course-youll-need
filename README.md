@@ -25,3 +25,4 @@ My notes and annotations from https://frontendmasters.com/courses/algorithms/
 - [03-02 Implementing Bubble Sort](./03-02-implementing-bubble-sort)
 - [03-03 Linked List Data Structures](./03-03-linked-list-data-structures)
 - [03-04 Linked List Complexity](./03-03-linked-list-data-structures)
+- [03-05 Queue](/03-05-queue)
