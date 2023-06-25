@@ -2,6 +2,12 @@
 
 https://frontendmasters.com/courses/algorithms/queue/
 
+## Takeaways
+
+- queue is a linked list with constraints - values can only be added to the end,
+  removed from the head, and viewed at the head
+- constraints are what make data structures performant
+
 ## Notes
 
 - people sometimes get pedantic about "is this a data structure, or is it an
