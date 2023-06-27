@@ -48,7 +48,7 @@ class Queue(Generic[T]):
 
 if __name__ == "__main__":
     xs = [5, 7, 9]
-    queue = Queue()
+    queue: Queue[int] = Queue()
 
     for x in xs:
         print(f"Enqueuing {x}")
@@ -56,9 +56,12 @@ if __name__ == "__main__":
 
     assert queue.length == len(xs), "Queue length is not equal to array length"
 
+    print("")
+
     for i, x in enumerate(xs):
-        print(f"\nDequeuing iteration {i}")
+        print(f"Dequeuing iteration {i}")
         value = queue.deque()
         print(f"Value is {value}")
         assert value == x, "Dequeued value is incorrect"
         assert queue.length == len(xs) - i - 1, "Queue length is incorrect"
+        print(f"length of queue: {queue.length}\n")
