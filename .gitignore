@@ -131,3 +131,6 @@ dist
 
 # rust
 target
+
+# python
+.dmypy.json
